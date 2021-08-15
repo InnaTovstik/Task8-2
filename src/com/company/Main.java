@@ -14,23 +14,22 @@ public class Main {
         catsName.add("Baby");
         catsName.add("Caitlyn");
         System.out.println("Список строк " + catsName);
-        System.out.println("Список строк, из которого удалили все строки, длина которых > 4 " + deleteNode(catsName));
+        System.out.println("Список строк, из которого удалили все строки, длина которых > 4 " + deleteElem(catsName));
     }
 
-    public static LinkedList deleteNode(LinkedList ldl) {
+    public static LinkedList<String> deleteElem(LinkedList<String> ldl) {
         if (ldl == null || ldl.isEmpty()) {
             return null;
         } else {
-            LinkedList<String> delElemLdl = new LinkedList<>();
-            for (Object o : ldl) {
-                String elem = (String) o;
-                if (elem.length() > 4) {
-                    delElemLdl.remove(o);
+            LinkedList<String> shortName = new LinkedList<>();
+            for (String o : ldl) {
+                if (o.length() > 4) {
+                    shortName.remove(o);
                 } else {
-                    delElemLdl.add((String) o);
+                    shortName.add(o);
                 }
             }
-            return delElemLdl;
+            return shortName;
         }
     }
 }
