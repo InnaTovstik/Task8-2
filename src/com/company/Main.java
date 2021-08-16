@@ -1,11 +1,12 @@
 package com.company;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        LinkedList<String> catsName = new LinkedList<>();
+        List<String> catsName = new LinkedList<>();
         catsName.add("Tom");
         catsName.add("Joker");
         catsName.add("Agat");
@@ -17,19 +18,19 @@ public class Main {
         System.out.println("Список строк, из которого удалили все строки, длина которых > 4 " + deleteElem(catsName));
     }
 
-    public static LinkedList<String> deleteElem(LinkedList<String> ldl) {
-        if (ldl == null || ldl.isEmpty()) {
+    public static List<String> deleteElem(List<String> list) {
+        LinkedList<String> shortName = new LinkedList<>();
+        if (list == null || list.isEmpty()) {
             return null;
         } else {
-            LinkedList<String> shortName = new LinkedList<>();
-            for (String o : ldl) {
-                if (o.length() > 4) {
-                    shortName.remove(o);
-                } else {
-                    shortName.add(o);
-                }
+            for (String o : list) {
+               if (o.length() <= 4) {
+                    shortName.addLast(o);
+               }
             }
-            return shortName;
         }
+        return shortName;
     }
 }
+
+
